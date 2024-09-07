@@ -1,0 +1,195 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="index.css">
+
+	<title>MIČ</title>
+</head>
+
+<body>
+	<header>
+		<h1>Multifunkčné ihrisko Čaradice</h1>
+
+	</header>
+	<form action="xyz" method="post" enctype="multipart/form-data"
+		onsubmit="return(validateForm())" name="form">
+		<input type="hidden" name="apikey" value="xyz">
+		<input type="hidden" name="from" value="xyz">
+		<input type="hidden" name="sender" value="xyz">
+		<input type="hidden" name="to" value="xyz">
+		<input type="hidden" name="subject" value="xyz">
+		<input type="hidden" name="redirectOk" value="xyz">
+		<input type="hidden" name="redirectFalse" value="xyz">
+		<div class="about block">
+			<div class="info block personal">
+				<h1>Osobné údaje</h1>
+				<hr>
+
+
+				<label class="label-text" for="name">Meno*</label>
+				<div class="input-span">
+					<input type="text" name="name" id="name" placeholder="Janko" maxlength="12"
+						oninput="displayCharacters('name', 'err-name')"
+						onblur="validateIsEmpty('name', 'err-name', 'TEXT')">
+					<span class="characters" id="err-name"></span>
+				</div>
+
+
+				<label class="label-text" for="surname">Priezvisko*</label>
+				<div class="input-span">
+					<input type="text" name="surname" id="surname" placeholder="Mrkvicka" maxlength="12"
+						oninput="displayCharacters('surname', 'err-surname')"
+						onblur="validateIsEmpty('surname', 'err-surname', 'TEXT')">
+					<span class="characters" id="err-surname"></span>
+				</div>
+
+
+
+				<label class="" for="birthdate">Dátum narodenia*</label>
+				<input type="date" name="birthdate" id="birthdate">
+				<label class="" for="age">Vek*</label>
+				<div class="input-span">
+					<input type="number" name="age" id="age">
+					<span class="characters" id="err-age"></span>
+				</div>
+
+
+			</div>
+
+			<div class="info block contact">
+				<h1>Kontakt</h1>
+				<hr>
+
+				<label class="label-text" for="email">E-mail</label>
+				<div class="input-span">
+					<input type="text" name="email" id="email" placeholder="ivo.dlhy@gmail.com" maxlength="30"
+						onblur="validateIsEmpty('email', 'err-mail', 'EMAIL')"
+						oninput="displayCharacters('email', 'err-mail')">
+					<span class="message" id="err-mail"></span>
+				</div>
+
+				<div class="number-container">
+					<label for="preset">Predvolba</label>
+					<label class="label-text" for="phone-number">Tel. číslo</label>
+					<select name="preset" id="preset" onchange="validateNumber('phone-number')">
+						<option value="None">?Vyber?</option>
+						<option value="SK+421">+421</option>
+						<option value="CZ+420">+420</option>
+						<option value="PL+48">+48</option>
+						<option value="UA+380">+380</option>
+					</select>
+					<div class="input-span">
+						<input type="number" name="phone-number" id="phone-number" placeholder="123456789"
+							oninput="displayCharacters('phone-number', 'err-phone')"
+							onblur="validateNumber('phone-number')">
+						<span class="message" id="err-phone"></span>
+					</div>
+
+				</div>
+
+				<div class="block gender">
+					<h1>Pohlavie*</h1>
+					<hr>
+					<div class="genders">
+						<label for="male" class="radio">Muž</label>
+						<input type="radio" value="Muž" id="male" name="gender">
+						<label for="female" class="radio">Žena</label>
+						<input type="radio" value="Žena" id="female" name="gender">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="dropdown block">
+			<div class="dropdown-item"><label for="dd-sport"></label>
+				<label for="dd-sport">Šport</label>
+
+				<select name="dd-sport" id="dd-sport" class="dd-select" onchange="selectSport()">
+					<option value="volleyball">Volejbal</option>
+					<option value="football">Futbal</option>
+					<option value="florball">Florbal</option>
+				</select>
+			</div>
+			<div class="dropdown-item">
+				<label for="dd-day">Deň</label>
+				<select name="dd-day" id="dd-day" class="dd-select" onchange="selectDay()">
+				</select>
+			</div>
+
+
+			<div class="dropdown-item">
+				<label for="dd-time">Čas</label>
+				<select name="dd-time" id="dd-time" class="dd-select" onchange="selectTime()">
+				</select>
+			</div>
+
+
+		</div>
+		<div class="display-info">
+			<h1>Ďalšie možnosti</h1>
+			<hr>
+			<label for="show" class="radio">Ukázať</label>
+			<input type="radio" id="show" name="display-info" value="show" checked onchange="showMoreInfo()">
+			<label for="hide-more" class="radio">Skryť</label>
+			<input type="radio" id="hide-more" name="display-info" value="hide" onchange="showMoreInfo()">
+
+		</div>
+		<div class="choose block" id="chooseBlock">
+
+			<div class="boxes">
+				<label for="box-lights">Zapnut svetla</label>
+				<input type="checkbox" id="box-lights">
+				<label for="box-prepare-pitch">Pripravit ihrisko</label>
+				<input type="checkbox" id="box-prepare-pitch">
+				<label for="box-borrow-stuff">Pozicat nacinie</label>
+				<input type="checkbox" id="box-borrow-stuff">
+				<label for="box-other">Ine?</label>
+				<input type="checkbox" id="box-other" onclick="displayTextArea('commentForm')">
+			</div>
+			<textarea name="comment" id="commentForm" cols="50" rows="10"></textarea>
+		</div>
+		<button class="processButton" type="button" onclick="processForm()">Zobraziť náhľad</button>
+		<div id="modal">
+			<div class="modal-container">
+				<section class="mod info-contact">
+					<span id="m-name">Meno: </span>
+					<span id="m-surname">Priezvisko: </span>
+					<span id="m-birthdate">Dátum narodenia: </span>
+					<span id="m-age">Vek: </span>
+					<span class="modal-item">Mail: </span>
+					<span class="modal-item">Tel. číslo: </span>
+					<span class="modal-item">Pohlavie: </span>
+					<p id="price"><b>Cena:</b></p>
+				</section>
+				<section class="mod sport">
+					<span class="modal-item">Šport: </span>
+					<span class="modal-item">Deň: </span>
+					<span class="modal-item">Čas: </span>
+					<span class="modal-item">Svetlá: </span>
+					<span class="modal-item">Pripraviť ihrisko: </span>
+					<span class="modal-item">Požičať náčinie: </span>
+					<span id="m-other">Iné: </span>
+				</section>
+			</div>
+			<p id="err-modal">Formulár nejde odoslať, skontroluj si svoje odpovede(červený rámik)!!</p>
+			<div class="buttons">
+				<button type="button" onclick="hide('modal')">Remake</button>
+				<!-- <button type="button" onclick="validateForm()">ODOSLI</button> -->
+				<input type="submit" value="Odošli formulár" onclick="printV()">
+			</div>
+		</div>
+
+		<div id="hidden-text">
+			<button type="button" id="printButton" onclick="display('my-name')">Stlač ma</button>
+			<p id="my-name">Jakub Bánsky</p>
+		</div>
+	</form>
+
+	<script src="index.js">
+
+	</script>
+</body>
+
+</html>

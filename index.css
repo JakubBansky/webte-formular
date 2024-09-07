@@ -1,0 +1,393 @@
+:root {
+	--primary-color: rgb(232, 209, 234);
+	--text-color: rgb(52, 20, 20);
+	--background-color: rgb(227, 236, 188);
+	--border: 2px solid black;
+	--main-border: 3px dashed var(--background-color);
+	--modal-border: 3px dashed rgb(41, 40, 72);
+}
+
+body {
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+	height: 100%;
+	color: var(--text-color);
+	margin: 0;
+}
+h1,
+h2,
+ul,
+li,
+p,
+button,
+input {
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+
+header {
+	position: relative;
+	text-align: center;
+	vertical-align: middle;
+	background-color: rgb(225, 199, 204);
+	padding: 0.5rem;
+}
+
+header h1 {
+	font-size: xx-large;
+}
+#hidden-text {
+	border: var(--main-border);
+	padding: 0.5rem;
+	width: 60%;
+	background-color: var(--background-color);
+	margin: 1rem 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+#hidden-text button {
+	cursor: pointer;
+}
+
+#hidden-text p {
+	background-color: var(--primary-color);
+	border: var(--main-border);
+	padding: 0.5rem;
+	margin: 0 1rem;
+}
+form {
+	background-color: rgb(203, 250, 234);
+	border: var(--main-border);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+input,
+select,
+textarea {
+	outline: none;
+	border-radius: 5px;
+}
+hr {
+	width: 80%;
+}
+
+.block {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80%;
+}
+.about {
+	background-color: var(--background-color);
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	justify-content: space-between;
+	align-items: start;
+}
+.info {
+	border: var(--main-border);
+	max-width: 500px;
+	background-color: var(--primary-color);
+	align-items: start;
+	justify-content: space-between;
+	flex-direction: column;
+	width: 45%;
+	margin: 1rem;
+}
+.info h1 {
+	font-size: 1.8rem;
+}
+
+.info label,
+.info input {
+	font-size: 1rem;
+	margin-left: 0.5rem;
+}
+.info input {
+	font-size: 1rem;
+	height: 1.5rem;
+	margin-bottom: 0.4rem;
+	padding-left: 0.5rem;
+	border: var(--border);
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	cursor: pointer;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	width: 20px;
+	height: 20px;
+	border: var(--modal-border);
+	border-radius: 50%;
+	outline: none;
+}
+input[type="checkbox"] {
+	border-radius: 0;
+}
+input[type="radio"]:checked,
+input[type="checkbox"]:checked {
+	background-color: rgb(203, 250, 234);
+	border: var(--modal-border);
+}
+
+.personal {
+	height: 100%;
+}
+.contact {
+	height: 100%;
+}
+.input-span {
+	width: 70%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.input-span span {
+	margin-left: 0.3rem;
+}
+
+.characters {
+	height: 1.5rem;
+	font-size: small;
+	width: 100%;
+}
+.number-container {
+	display: grid;
+	grid-template-columns: 1fr 6fr;
+}
+.number-container select {
+	margin-left: 0.5rem;
+	font-size: 1rem;
+}
+.number-container input {
+	margin-bottom: 0;
+	border-width: 0;
+}
+#preset {
+	cursor: pointer;
+	border: var(--border);
+}
+#phone-number {
+	width: 70%;
+	border: var(--border);
+}
+
+.gender {
+	margin: 0.5rem 0;
+	display: block;
+	width: 100%;
+	background-color: var(--primary-color);
+}
+.gender h1 {
+	text-align: left;
+}
+.genders {
+	width: 100%;
+	display: flex;
+}
+.dropdown {
+	border: var(--main-border);
+	background-color: var(--primary-color);
+	justify-content: space-evenly;
+	margin-bottom: 1rem;
+	padding: 1rem 0;
+}
+.dropdown-item {
+	width: 30%;
+	display: flex;
+	row-gap: 0.2rem;
+	flex-direction: column;
+}
+
+.dropdown-item select {
+	height: 2rem;
+	font-size: 1rem;
+	cursor: pointer;
+	width: 60%;
+	background-color: var(--background-color);
+}
+.dd-select:hover {
+	width: 60%;
+	background-color: rgb(203, 250, 234);
+}
+
+.dropdown option:hover {
+    background-color: rgb(225, 199, 204);
+}
+/* #dd-sport option:hover {
+    background-color: lime;
+} */
+.dropdown-item option {
+	background-color: var(--background-color);
+}
+.dropdown-item label {
+	font-size: 1.8rem;
+	width: 30%;
+}
+
+.display-info {
+	border: var(--main-border);
+	background-color: var(--primary-color);
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 1rem;
+	font-size: 1rem;
+}
+.display-info label {
+	font-size: 1.5rem;
+}
+.display-info input {
+	margin-bottom: 0.5rem;
+}
+
+.choose {
+	display: flex;
+	background-color: var(--primary-color);
+	border: var(--main-border);
+	justify-content: space-evenly;
+	padding: 1rem 0;
+}
+.boxes {
+	width: 30%;
+	display: grid;
+	row-gap: 0.5rem;
+	grid-template-columns: 5fr 1fr;
+}
+#commentForm {
+	visibility: hidden;
+}
+.choose label {
+	margin-left: 0.5rem;
+}
+.choose input {
+	margin-left: 1rem;
+}
+.comment {
+	background-color: blueviolet;
+	height: 10rem;
+}
+#my-name {
+	visibility: hidden;
+}
+
+#modal {
+	width: 60%;
+	height: 80%;
+	position: absolute;
+	top: 10%;
+	left: 20%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-evenly;
+	background-color: var(--primary-color);
+	border: var(--modal-border);
+	visibility: hidden;
+}
+#modal span,
+#modal p {
+	margin-top: 0.3rem;
+	margin-left: 0.5rem;
+	margin-bottom: 1rem;
+	width: 90%;
+}
+
+#modal h4 {
+	margin-top: 2rem;
+	margin-left: 0.5rem;
+	margin-bottom: 1rem;
+	width: 90%;
+}
+
+
+.modal-container {
+	width: 90%;
+	height: 90%;
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: row;
+	margin-top: 1rem;
+}
+.mod {
+	border: var(--modal-border);
+	width: 45%;
+	height: 90%;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+}
+
+input[type="submit"],
+button {
+	background-color: var(--primary-color);
+	border-radius: 3%;
+	padding: 0.5rem;
+	margin: 1rem 0;
+	border: var(--main-border);
+}
+
+#err-modal {
+	display: none;
+	align-items: center;
+	justify-content: center;
+	padding: 0.3rem;
+	border: 2px dotted red;
+}
+
+.info-contact {
+	background-color: var(--background-color);
+}
+.sport {
+	background-color: var(--background-color);
+}
+
+.modal-open .about,
+.modal-open .dropdown,
+.modal-open .display-info,
+.modal-open .choose,
+.modal-open .processButton,
+.modal-open header {
+	filter: blur(5px);
+	pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+	.about {
+		flex-direction: column;
+		align-items: center;
+	}
+	.info {
+		justify-content: center;
+		width: 90%;
+	}
+	.dropdown {
+		flex-direction: column;
+		width: 70%;
+	}
+	.dropdown-item select {
+		width: 100%;
+	}
+	.dropdown-item option {
+		width: 100%;
+	}
+	.dd-select:hover {
+		width: 100%;
+		background-color: pink;
+	}
+	#modal{
+		justify-content: center;
+		width: 90%;
+		height: 100%;
+		left: 5%;
+	}
+	.modal-container{
+		margin-top: 0.5rem;
+	}
+}
